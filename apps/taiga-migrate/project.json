@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/taiga-migrate",
         "index": "apps/taiga-migrate/src/index.html",
@@ -16,9 +18,18 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/taiga-migrate/src/favicon.ico",
-          "apps/taiga-migrate/src/assets"
+          "apps/taiga-migrate/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@taiga-ui/icons/src",
+            "output": "assets/taiga-ui/icons"
+          }
         ],
-        "styles": ["apps/taiga-migrate/src/styles.scss"],
+        "styles": [
+          "apps/taiga-migrate/src/styles.scss",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,7 +94,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/taiga-migrate"],
+      "outputs": [
+        "coverage/apps/taiga-migrate"
+      ],
       "options": {
         "jestConfig": "apps/taiga-migrate/jest.config.ts",
         "passWithNoTests": true

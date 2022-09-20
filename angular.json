@@ -2,7 +2,6 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "taiga-migrate": "apps/taiga-migrate",
-    "taiga-migrate-e2e": "apps/taiga-migrate-e2e"
+    "taiga-migrate": "apps/taiga-migrate"
   }
 }
